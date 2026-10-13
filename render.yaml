@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: lizzy-torres-rentas
+    runtime: node
+    plan: starter
+    buildCommand: npm test
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: 24.19.0
+      - key: LIZZY_DB_PATH
+        value: /var/data/app.sqlite
+    disk:
+      name: lizzy-datos
+      mountPath: /var/data
+      sizeGB: 1
